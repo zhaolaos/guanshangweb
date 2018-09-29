@@ -1,0 +1,407 @@
+/*Initialization*/
+body,div,h1,h2,h3,h4,h5,p,img,ul,li,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Microsoft Yahei;
+	font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+a:hover {
+	color: red;
+}
+/* 公共样式 */
+/* 所有区域的宽度限定区域 */
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.container {
+  width: 1024px;
+	margin: 0 auto;
+	box-shadow: 0 0 50px 50px #eee;
+}
+.line {
+  height: 2px;
+  background-color: #666666;
+  width: 100%;
+}
+.active {
+  background-color: red !important;
+}
+.clb{clear:both;}
+
+/* ==================================================================== */
+/* 头部样式 */
+.header {
+  width: 100%;
+}
+/* logo*/
+.logo {
+  width: 100%;
+  height: 108px;
+  background-image: url('../images/logo01.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/* 导航条 */
+.navbar {
+  background-color: #003366;
+  height: 30px;
+  line-height: 30px;
+}
+.navbar-item {
+  padding-left: 6px;
+  font-size: 16px;
+}
+.navbar-item li {
+  float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    min-width: 70px;
+    text-align: center;
+}
+.navbar-item li a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+}
+.navbar-item li:hover {
+  background-color: red;
+}
+.dropdown-menu {
+	background-color: #006699;
+	min-width: 100%;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	z-index: 999;
+	padding-left: 0;
+	font-size: 14px;
+	display:none
+}
+.dropdown-menu>li {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* ==================================================================== */
+/* 新闻列表样式 */
+.news {
+	width: 95%;
+	border: 1px solid #666666;
+	padding: 5px;
+	margin-top: 10px;
+	/*修补列表大小后添加的*/
+	height: 268px;
+	overflow: hidden;
+}
+.news-title {
+/*	float: none;*/
+	font-size: 16px;
+	color: #006699;
+	width: 100%;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #666;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+.news-title span {
+    color: #666666;
+}
+.news-title a {
+    font-size: 14px;
+    display: block;
+    float: right;
+}
+.news-list {
+	padding-top: 5px;
+	padding-bottom: 5px;
+/* 	list-style-type: disc;
+	margin-left: 10px;
+*/
+}
+/* 2018.9.15修订的从news-list中分离出来的用于主页中的样式 */
+.news-list-index {
+	height: 225px;
+	overflow:hidden;
+}
+
+.news-list li {
+    height: 25px;
+	line-height: 25px;
+}
+.news-list li a {
+	max-width: 252px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    float: left;
+
+}
+.news-list li a:hover {
+	font-weight: bold;
+}
+.news-list li span {
+    display: block;
+    float: right;
+}
+.news-list-img {
+	padding-top: 4px;
+	padding-left: 7px;
+}
+
+/* 图片列表样式 */
+.pic-list {
+	padding-bottom: 30px;
+}
+.pic-list li{
+	line-height: 25px;
+	width: 25%;
+	text-align: center;
+	float: left;
+	margin-top: 10px;
+}
+
+/* ==================================================================== */
+/* 幻灯片样式 */
+.slide {
+	width: 100%;
+	height: 280px;
+	margin-top: 10px;
+	overflow: hidden; 
+	position: relative;
+}
+.slide-img {
+	height: 100%;
+	transform: translateX(0);
+	-webkit-transform: translateX(0);
+}
+.slide-img li{
+	float: left;
+	/* 如果这里不写width属性的edge不会默认为100%，而chrome则是按照100%显示 */
+	width: 100%; 
+	height: 100%;
+}
+.slide-img li img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+ /* .slide ul li img{
+	width:100%;
+	height: 100%;
+} */
+.slide-description {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	overflow: hidden;
+}
+.slide-description li {
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background-color: rgba(73,162,218,.5);
+	display: none;
+	padding-left: 5px;
+}
+/*原来设置的单独的.cur类样式，但是加载到li之后没有效果，修改为下面的方式*/
+.slide-description li.cur {
+	display: block;
+}
+.dot {
+	height: 3px;
+	position: absolute;
+	right: 15px;
+	bottom: 20px;
+}
+.dot li {
+	background-color: #fff;
+	display: inline-block;
+	height: 8px;
+	width: 8px;
+	border-radius:2px;
+}
+/* 页脚样式 */
+.footer {
+	margin-top: 10px;
+}
+.favlink{
+	height: 46px;
+	background-image: url(../images/favlink.png);
+	background-repeat: no-repeat;
+	background-color: #CCD6EB;
+	/* background-position: 10px; */
+	line-height: 46px;
+}
+.copyright{
+	text-align: center;
+	height: 50px;
+	background-color: #CCC;
+	color: #333;
+	font-size: 12px;
+}
+.copyright p{
+	line-height:25px;
+	}
+.favlink ul {
+	margin-left: 60px;
+}
+.favlink ul li {
+	float: left;
+	margin-left: 20px;
+}
+/* .footer .favlink ul li a {
+	color: #666;
+}
+.footer .favlink ul li a:hover {
+	color: #000;
+} */
+
+/* 内容区域样式 */
+
+#leftContent {
+	width: 424px;
+}
+#rightContent {
+	width: 600px;
+}
+#rcAcademic {
+	width: 350px;
+}
+#rcFeature {
+	width: 250px;
+}
+
+
+/* list列表样式 */
+.page-list {
+	margin-top: 10px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.list-container {
+	margin-right: 230px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: 2px solid rgb(13,119,181);
+}
+
+/*路径导航*/
+.nav-path {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 3px;
+}
+.nav-path a {
+	padding: 0 3px;
+}
+
+
+/*文章内容区域样式*/
+.content {
+	/*该样式列表区也使用*/
+	border-top: 1px solid rgb(13,119,181);
+	border-bottom: 1px solid rgb(13,119,181);
+}
+.article {
+	padding: 0 10px;
+}
+/*类似about页面的样式设置*/
+/*内容部分在右侧，子栏目在左侧*/
+.single-article-right {
+	margin-left: 230px;
+	border-left: 2px solid rgb(13,119,181);
+}
+/*内容部分在左侧，子栏目在右侧*/
+.single-article-left {
+	margin-right: 230px;
+	border-right: 2px solid rgb(13,119,181);
+}
+
+
+/*文章内容区域样式*/
+.article-title {
+	text-align: center;
+	line-height: 2.5rem;
+}
+.article-content {
+	padding: 5px;
+}
+.else-news {
+	padding: 10px;
+}
+.else-news p {
+	max-width: 50%;
+}
+
+/* 栏目导航 */
+.subnav {
+	text-align: center;
+	width: 230px;
+	overflow: hidden;
+	background-color: rgb(73,162,218);
+}
+.subnav h3 {
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	background-color: rgb(13,119,181);
+}
+.subnav ul {
+	font-size: 16px;
+	margin-top: 40px;
+	padding-bottom: 40px;
+	border-top: 1px solid rgb(13,119,181);
+}
+.subnav ul li {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid rgb(13,119,181);
+}
+.subnav ul li a {
+    color: #fff;
+    display: block;
+    width: 100%;
+}
+.subnav ul li:hover {
+    background-color: red;
+}
+
+/* AD-pic&div */
+.pic {
+	max-height: 130px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.pic img {
+	width: 100%;
+}
+.temp-div {
+	background-image: url(../images/feature.jpg);
+	background-repeat: no-repeat;
+	border-top: 1px solid rgb(13,119,181);
+	border-bottom: 1px solid rgb(13,119,181);
+	padding-left: 80px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.temp-div img {
+	vertical-align: bottom;
+}

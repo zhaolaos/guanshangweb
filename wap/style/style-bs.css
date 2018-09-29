@@ -1,0 +1,47 @@
+body {
+    font-family: Microsoft Yahei;
+}
+ul {
+    list-style-type: none;
+}
+.navbar-nav {
+    font-size: 16px;
+    padding-left: 14px;
+    border-radius: 0;
+}
+
+/* 页脚样式 */
+.footer {
+    margin-top: 10px;
+}
+.footer .favlink{
+    height: 46px;
+    background-image: url(../images/favlink.png);
+    background-repeat: no-repeat;
+    background-color: #CCD6EB;
+    /* background-position: 10px; */
+    line-height: 46px;
+}
+.footer .copyright{
+    text-align: center;
+    height: 50px;
+    background-color: #CCC;
+    color: #333;
+    font-size: 12px;
+}
+.footer .copyright p{
+    line-height:25px;
+    }
+.footer .favlink ul {
+    margin-left: 60px;
+}
+.footer .favlink ul li {
+    float: left;
+    margin-left: 20px;
+}
+@media (min-width: 768px) {
+.navbar-nav {
+    border-radius: 0;
+}
+
+}

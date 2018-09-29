@@ -1,0 +1,60 @@
+﻿首页布局的说明，主要针对中间内容的布局说明
+
+主体内容部分采用了左右的布局结构，左侧分为新闻和通知公告，右侧有slide、学术交流、特色导航。
+
+此布局不是很理想，可以考虑使用上中下的布局形式，即上部分通知公告、slide，中间新闻、学术、
+特色导航，下部分可以添加其他内容，如：图片列表、导航列表等
+
+================================================================================
+
+2018.9.15
+今天发现style.css样式表中有一个bug，首页跟新闻列表页共用一个news-list样式，由于news-list样式定义中height样式少了一个分号，
+导致没有发现这个错误，在准备制作piclist图片列表页面时发现了该bug。这里修正了一下把原来news-list中
+height: 225px; overflow:hidden;
+这两个跟主页有关的样式放到了.news-list-index类选择器中，这样避免了大面积的修改。
+
+2018.9.14
+样式表中增加了article、single-article-left、single-article-right样式用于实现文章页面中侧边栏带有子栏目的效果
+这些样式的设定跟列表页中list-container样式的设定有些重复，可以考虑合并？
+
+
+2018.9.13
+页面幻灯片的样式设定中，原来设置的单独的.cur类样式用于显示幻灯片图片的文字描述原来的设计是下面的代码
+.slide-description li {
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background-color: rgba(73,162,218,.5);
+	display: none;
+	padding-left: 5px;
+}
+.cur {
+	display: block;
+}
+这样设计后发现.cur中display样式优先级没有li中的高，造成加载到li之后没有效果。
+出现以上问题的原因是CSS选择器的问题，因为li前面的.slide-description类和.cur类同级，根据优先级原则这样li的样式优先级高于.cur的样式
+，修改方案有以下两种方法。
+方法一：
+.slide-description .cur {
+	display: block;
+}
+方法二：
+.slide-description li.cur {
+	display: block;
+}
+
+修改幻灯片文件slide.js
+添加小圆点的样式切换
+添加文字描述的样式切换
+
+
+2018.3.28
+对CSS样式表单做了一些优化，减少了一些html标签样式，而改用class标签实现。
+class和ID的命名规范了一下，全部小写，单词之间使用了中划线。
+页面中的menu模块和news模块也做了一些优化。
+	news模块去掉了原本两个没有用的div（<div class="news-title">和<div class="news-list"）,把news-title样式直接应用在了<h3>标题上,news-list样式直接用在了<ul>上。
+	menu模块把菜单项的ul使用了navbar-item类标签，减少了样式中标签的嵌套。
+
+针对列表页面中的新闻列表原来的设计中外围样式取名article-list不合理，跟内容页面的article相关的样式造成了混淆，改为list-container
+
+article样式没有设定，日后再怎么优化吧。
